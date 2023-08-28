@@ -12,7 +12,7 @@
    
 
 <div class="container my-5">
-    <h1 class="text-center">TODOLIST APPlICATION</h1>
+    <h1 class="text-center">TODOLIST APPlICATION james</h1>
     <form class="text-center" action="store" method="POST">
         @csrf
         <div class="mb-3">
