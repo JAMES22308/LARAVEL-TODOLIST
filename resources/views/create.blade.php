@@ -8,15 +8,14 @@
     <title>Todolist</title>
 </head>
 <body class="bg-light">
-    @livewire('livewire-component')
    
 
 <div class="container my-5">
-    <h1 class="text-center">TODOLIST APPlICATION</h1>
-    <form class="text-center" action="store" method="POST">
+    <h1 class="text-center">TODOLIST APPLICATION</h1>
+    <form wire:submit="handleClick" class="text-center" action="store" method="POST">
         @csrf
         <div class="mb-3">
-            <input class="form-control" name="name" type="text" placeholder="Name">
+            <input wire:model="name" class="form-control" name="name" type="text" placeholder="Name">
         </div>
 
             @error('name')
@@ -24,19 +23,22 @@
             @enderror
 
         <div class="mb-3">
-            <input class="form-control" name="todolist" type="text" placeholder="Input Todo">
+            <input wire:model="todolist" class="form-control" name="todolist" type="text" placeholder="Input Todo">
         </div>
 
             @error('todolist')
                 <h3 class="text-sm-left small">{{$message}}</h3>
             @enderror
-        <button class="btn btn-primary mt-2" type="submit">Create</button>
+        <button class="btn btn-primary mt-2" type="submit" wire:loading.remove>Create</button>
+        <div align="center" class="loading mt-3 text-secondary" wire:loading>
+            <p>Tilililit tililit hawayu...</p> 
+        </div>
 
     </form>
     @if(session('message'))
     <div class="d-flex justify-content-center">
         <div class="alert alert-success text-center mt-3 w-25" >
-            <h6 >{{session('message')}}</h6>
+            <h6 >{{session('message')}} </h6>
         </div>
     </div>
     @endif
@@ -48,7 +50,7 @@
     </div>
     @endif
 
-    <table class="table table-striped mt-3">
+    <table class="table table-striped mt-3 mb-6">
         <thead>
             <tr>
                 <th>ID</th>
@@ -71,6 +73,10 @@
     </table>
    
 </div>
+
+
+{{-- adding livewire 3 --}}
+@livewire('livewire-component')
 
 </body>
 </html>

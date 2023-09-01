@@ -52,7 +52,7 @@ class TodolistController extends Controller
             "todo" => $validated['todolist'],
         ]);
 
-        return redirect('/create')->with('alert', 'updated successfully');
+        return redirect('/create')->with('alert', 'updated successfully'  );
 
     }
 

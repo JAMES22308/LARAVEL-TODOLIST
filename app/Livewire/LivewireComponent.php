@@ -7,10 +7,19 @@ use Livewire\Component;
 class LivewireComponent extends Component
 {
 
-    public $message = "hello livewire";
+
+
+    public $message = "livewire 3 testing";
     
     public function render()
     {
         return view('livewire.livewire-component');
+    }
+
+    public function handleClick(){
+
+
+        sleep(2);
+
     }
 }
